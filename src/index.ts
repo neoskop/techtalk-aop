@@ -11,16 +11,16 @@ new AopManager().install([
 async function main() {
     const api = new ExampleApi();
 
-    await api.get('1');
-    await api.get('1');
-    await api.get('1');
+    console.log((await api.get('1')).data);
+    console.log((await api.get('1')).data);
+    console.log((await api.get('1')).data);
 
     const data = await api.get('1');
     data.data = 'FOOBAR';
     await api.update(data);
 
-    await api.get('1');
-    await api.get('1');
+    console.log((await api.get('1')).data);
+    console.log((await api.get('1')).data);
 }
 
 main().catch(err => {
